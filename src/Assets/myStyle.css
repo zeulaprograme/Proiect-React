@@ -1,0 +1,44 @@
+.body{
+    background-image: linear-gradient(to right, #BDC3C7, #2C3E50);
+    text-align: center;
+}
+.header{
+    background-image: linear-gradient(to right, #BDC3C7, #2C3E50);
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+}
+.gifs {
+    margin: 0 auto;
+    width: 90%;
+    display:inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gif {
+    margin-top: 5px;
+    padding: 0 2px;
+}
+.Loader{
+    color: blue;
+}
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+}
+.content-wrap{
+    flex: 1;
+}
+.main-footer{
+    color:white;
+    background-image: linear-gradient(to right, #BDC3C7, #2C3E50);
+    bottom: 0;
+    position: relative;
+    padding-top: 2em;
+    width: 100%;
+}
+
+.btn-secondary{
+    background-color : #254254;
+}
