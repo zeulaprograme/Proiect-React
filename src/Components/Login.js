@@ -1,1 +1,10 @@
-//Lack of time ... I wish I could make this as well
+// Eventuala pagina de login, accesabila prin NavBar 
+import React from "react";
+
+export default function Login(){
+    return(
+        <div> 
+            <h1>Login page will come soon enough</h1>
+        </div>
+    )
+}

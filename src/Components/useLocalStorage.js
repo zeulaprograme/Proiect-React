@@ -1,8 +1,12 @@
-import React, {useState} from "react";
+// TENTATIVA DE LOCAL STORAGE PENTRU TEXTUL CE APARE IN FORMULARUL DE SEARCH DIN GIPHY.JS
 
-export default function useLocalStorage(value){
+// import React, {useState} from "react";
 
-    let[value,setValue] = useState(val);
+// export default function useLocalStorage(value){
 
-    return[value,setValue]
-}
+//     let[value,setValue] = useState(val);
+
+//     return[value,setValue]
+// } 
+
+// TENTATIVA DE LOCAL STORAGE - 

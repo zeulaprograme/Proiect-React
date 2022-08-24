@@ -6,16 +6,16 @@ import Header from "./Components/Header";
 import Login from "./Components/Login";
 
 const App = () => {
-    let component   
+    let component  // Tentativa de meniu cu Routing 
     switch (window.location.pathname) {
-        case "/Login":
-            component = <Login/>
+        case "/Login":      //In caz ca este apasat butonul de Login
+            component = <Login/> // Pagina Login o sa incerc s-o termin din Grecia :)) 
             break;
 
-        default:
+        default: //GIPHy API apare pe aplicatie din default
             component = <div className="App">
                 <div className="body page-container">
-                    <Giphy />
+                    <Giphy /> 
                 </div>
                
             </div>

@@ -15,6 +15,8 @@ const Giphy = () => {
             setIsLoading(true);
 
             try {
+                //Trimit request-uri catre GIPHy API sectiunea Trending GIFs cu ajutorul api_key si setez limita numarului de gif-uri afisate la 10
+                //Astea sunt gif-urile care apar ca default
                 const results = await axios("https://api.giphy.com/v1/gifs/trending", {
                     params: {
                         api_key: "OrZH5YuunBSr2weyl2ZQhdrHQD3VE5P2",
@@ -26,7 +28,8 @@ const Giphy = () => {
                 console.log(results);
                 setData(results.data.data);
 
-            } catch (err) {
+            } catch (err) { //Eventuale erori de cautare ( din cate am incercat, ii aproape imposibil sa apara o eroare atunci cand cauti efectiv dar am testat fortand o eroare din cod)
+                                                                                                                 
                 setIsError(true);
                 setTimeout(() => setIsError(false), 4000);
             }
@@ -37,11 +40,15 @@ const Giphy = () => {
         fetchData();
     }, []);
 
+
+    //afisarea efectiva a gif-urilor
     const renderGIFs = () => {
 
         if (isLoading) {
-            return <Loader />;
+            return <Loader />; //in caz ca numarul de afisari ar fi fost mai mare de 10, de exemplu 20000 ar fi durat ceva pana s-ar fi afisat gif-urile iar in timpul acela ar fi aparut pe ecran componenta Loader
+            //se poate testa schimband valoarea de la limit ( linia 23 , limit : 10 ) cu o valoare mai mare ( exemplu limit : 5000)
         }
+        //Dupa ce iese din if-ul de mai sus, programul afiseaza gif-urile default
         return data.map(el => {
             return (
                 <div key={el.id} className="gif">
@@ -50,6 +57,7 @@ const Giphy = () => {
             )
         })
     }
+    //in caz de eroare se va afisa alerta de mai jos ( eroarea trebuie fortata din cod)
     const renderError = () => {
         if (isError) {
             return (
@@ -70,9 +78,11 @@ const Giphy = () => {
         setSearch(event.target.value);
     };
 
+    //Apelam la API-ul de la GIPHy cu valoarea introdusa in input-ul de la formular( linia 112 )
+    //Similar cu ce avem la useEffect - linia 11
     const handleSubmit = async event => {
 
-        event.preventDefault();
+        event.preventDefault(); //prevenim reload-ul paginii dupa apasarea butonului Search ( linia 122)
         setIsError(false);
         setIsLoading(true);
 
@@ -80,7 +90,7 @@ const Giphy = () => {
             const result = await axios("https://api.giphy.com/v1/gifs/search", {
                 params: {
                     api_key: "OrZH5YuunBSr2weyl2ZQhdrHQD3VE5P2",
-                    q: search,
+                    q: search, // pasam search-ul(valoarea) primit in formular catre API-ul de la GIPHy
                     limit: 10
                 }
             });
@@ -95,7 +105,8 @@ const Giphy = () => {
 
     };
 
-
+    //Formularul de la Search
+    //Afisarea GIF-urilor in functie de valoarea introdusa in input
     return (
         <div className="m-2">
             {renderError()}
@@ -111,9 +122,10 @@ const Giphy = () => {
                 <button onClick={handleSubmit} type="submit" className="btn btn-secondary mx-2">
                     Search
                 </button>
-            </form>
-            <div className="container gifs">{renderGIFs()}</div>;
+            </form> 
+            <div className="container gifs">{renderGIFs()}</div>; 
         </div>
+        
     )
 
 

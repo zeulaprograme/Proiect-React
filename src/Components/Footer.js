@@ -1,13 +1,14 @@
 import React from "react";
 import MovingComponent from "react-moving-text";
 
+//Footer
 const Footer = () => {
     return (
 
         <div className="main-footer">
             <div className="container">
                 <div className="row">
-                    {/*Column 1*/}
+                    {/*Search*/}
                     <div className="col">
                         <MovingComponent
                             type="fadeOutToLeft"
@@ -26,7 +27,7 @@ const Footer = () => {
                         </MovingComponent>
 
                     </div>
-                    {/*Column 1*/}
+                    {/*Date*/}
                     <div className="col">
                         <MovingComponent
                             type="fadeOutToBottom"
@@ -41,7 +42,7 @@ const Footer = () => {
                         </MovingComponent>
 
                     </div>
-                    {/*Column 1*/}
+                    {/*NewsLetter*/}
                     <div className="col">
                         <MovingComponent
                             type="fadeOutToRight"

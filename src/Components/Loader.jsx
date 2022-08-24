@@ -1,5 +1,6 @@
 import React from "react";
 
+//Loading spinner 
 const Loader = () => {
     return(
 
